@@ -22,12 +22,13 @@
     - [🎨 UI/UX Design](#-uiux-design)
   - [🛠 Tech Stack](#-tech-stack)
   - [📱 Screenshots](#-screenshots)
-  - [🚀 Installation \& Setup](#-installation--setup)
+  - [🚀 Installation & Setup](#-installation--setup)
     - [Prerequisites](#prerequisites)
     - [1. Server Setup (Backend)](#1-server-setup-backend)
     - [2. App Setup (Frontend)](#2-app-setup-frontend)
-  - [📂 Project Structure](#-project-structure)
   - [📦 Dependencies (Flutter Packages)](#-dependencies-flutter-packages)
+  - [🔌 API Usage](#-api-usage)
+  - [📂 Project Structure](#-project-structure)
 
 ---
 
