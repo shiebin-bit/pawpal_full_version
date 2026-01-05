@@ -144,6 +144,20 @@ This project relies on the following packages:
 * [`intl`](https://pub.dev/packages/intl): For date formatting.
 * [`webview_flutter`](https://pub.dev/packages/webview_flutter): For displaying the Billplz payment page.
 * [`cached_network_image`](https://pub.dev/packages/cached_network_image): For efficient image loading (Optional).
+
+---
+## 🔌 API Usage
+
+The Flutter frontend communicates with the backend via RESTful API calls. Below are the primary endpoints handling data exchange:
+
+| Method | Endpoint | Description | Parameters (Body/Query) |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/register_user.php` | Registers a new user | `name`, `email`, `phone`, `password` |
+| **POST** | `/api/login_user.php` | Authenticates user | `email`, `password` |
+| **GET** | `/api/load_pets.php` | Fetches list of all pets | *None* |
+| **POST** | `/api/insert_pet.php` | Uploads a new pet listing | `userid`, `name`, `type`, `price`, `desc`, `images` (base64) |
+| **POST** | `/api/submit_donation.php` | Processes donation logic | `userid`, `petid`, `amount`, `type` (Food/Money/Medical) |
+| **POST** | `/api/payment_success.php` | Validates transaction success | `billplz_id`, `billplz_paid`, `userid` |
   
 ---
 
