@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>Connects pet lovers, adopters, and donors in one seamless platform.</b>
+  <b>Connects pet lovers, adopters and donors in one seamless platform.</b>
 </p>
 
 ---
@@ -34,7 +34,7 @@
 
 ## 📝 About the Project
 
-**PawPal** is a hybrid mobile application designed to facilitate pet adoption, rescue missions, and donations. It solves the problem of disconnected pet communities by providing a centralized platform where users can:
+**PawPal** is a hybrid mobile application designed to facilitate pet adoption, rescue missions and donations. It solves the problem of disconnected pet communities by providing a centralized platform where users can:
 1.  **Adopt** pets looking for a home.
 2.  **Donate** money (via Billplz) or supplies (Food/Medical) to help pets.
 3.  **Rescue** pets in emergency situations.
@@ -61,7 +61,7 @@ The system follows a standard **Client-Server Architecture**:
 ### 👤 User System
 * **Secure Authentication:** User Registration and Login with encrypted passwords.
 * **Auto-Login:** Splash screen with automated token/session checks.
-* **Profile Management:** Update personal details and profile pictures (with cache-busting real-time updates).
+* **Profile Management:** Update personal details and profile pictures.
 
 ### 🐶 Pet Management
 * **Add New Pets:** Users can upload pet details including multiple images.
@@ -128,7 +128,7 @@ The system follows a standard **Client-Server Architecture**:
     * Update the `baseUrl` to point to your live domain:
     ```dart
     // Use your actual domain name
-    static const String baseUrl = "[https://yourdomain.com](https://yourdomain.com)"; 
+    static const String baseUrl = "[https://canorcannot.com](https://canorcannot.com)"; 
     ```
 4.  Run the app:
     ```bash
