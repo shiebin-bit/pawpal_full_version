@@ -133,7 +133,18 @@ The system follows a standard **Client-Server Architecture**:
     ```bash
     flutter run
     ```
+---
 
+## 📦 Dependencies (Flutter Packages)
+
+This project relies on the following packages:
+
+* [`http`](https://pub.dev/packages/http): For making API calls to the PHP server.
+* [`shared_preferences`](https://pub.dev/packages/shared_preferences): For storing user sessions (Auto-Login).
+* [`intl`](https://pub.dev/packages/intl): For date formatting.
+* [`webview_flutter`](https://pub.dev/packages/webview_flutter): For displaying the Billplz payment page.
+* [`cached_network_image`](https://pub.dev/packages/cached_network_image): For efficient image loading (Optional).
+  
 ---
 
 ## 📂 Project Structure
@@ -151,15 +162,3 @@ lib/
 │   ├── DonationPage.dart # Donation form logic
 │   ├── payment_page.dart # Billplz WebView
 │   └── ...
-
----
-
-## 📦 Dependencies (Flutter Packages)
-
-This project relies on the following packages:
-
-* [`http`](https://pub.dev/packages/http): For making API calls to the PHP server.
-* [`shared_preferences`](https://pub.dev/packages/shared_preferences): For storing user sessions (Auto-Login).
-* [`intl`](https://pub.dev/packages/intl): For date formatting.
-* [`webview_flutter`](https://pub.dev/packages/webview_flutter): For displaying the Billplz payment page.
-* [`cached_network_image`](https://pub.dev/packages/cached_network_image): For efficient image loading (Optional).
