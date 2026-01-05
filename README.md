@@ -81,9 +81,8 @@ The app features a robust backend for managing transactions and a user-friendly 
 
 | Home Page | Pet Details | Donation Page | Payment Success |
 |:---:|:---:|:---:|:---:|
-| <img src="docs/home.png" width="200"> | <img src="docs/details.png" width="200"> | <img src="docs/donate.png" width="200"> | <img src="docs/receipt.png" width="200"> |
+| <img src="assets/home.png" width="200"> | <img src="assets/details.png" width="200"> | <img src="assets/donate.png" width="200"> | <img src="assets/receipt.png" width="200"> |
 
-*(Note: Replace `docs/image.png` with your actual screenshot paths)*
 
 ---
 
