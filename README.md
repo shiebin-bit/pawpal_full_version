@@ -14,6 +14,7 @@
 - [🐾 PawPal - Your Furry Friends Finder](#-pawpal---your-furry-friends-finder)
   - [📖 Table of Contents](#-table-of-contents)
   - [📝 About the Project](#-about-the-project)
+  - [🏗️ System Architecture](#️-system-architecture)
   - [✨ Key Features](#-key-features)
     - [👤 User System](#-user-system)
     - [🐶 Pet Management](#-pet-management)
@@ -21,11 +22,12 @@
     - [🎨 UI/UX Design](#-uiux-design)
   - [🛠 Tech Stack](#-tech-stack)
   - [📱 Screenshots](#-screenshots)
-  - [🚀 Installation Guide](#-installation-guide)
+  - [🚀 Installation \& Setup](#-installation--setup)
     - [Prerequisites](#prerequisites)
-    - [Backend Setup](#backend-setup)
-    - [Frontend Setup](#frontend-setup)
+    - [1. Server Setup (Backend)](#1-server-setup-backend)
+    - [2. App Setup (Frontend)](#2-app-setup-frontend)
   - [📂 Project Structure](#-project-structure)
+  - [📦 Dependencies (Flutter Packages)](#-dependencies-flutter-packages)
 
 ---
 
@@ -36,7 +38,20 @@
 2.  **Donate** money (via Billplz) or supplies (Food/Medical) to help pets.
 3.  **Rescue** pets in emergency situations.
 
-The app features a robust backend for managing transactions and a user-friendly frontend built with Flutter.
+The app features a robust backend hosted on a live server for managing transactions and a user-friendly frontend built with Flutter.
+
+## 🏗️ System Architecture
+
+The system follows a standard **Client-Server Architecture**:
+
+1.  **Client (Flutter App):** Handles the UI and user input.
+2.  **API Layer (PHP):** Processes requests (GET/POST) and handles logic (e.g., verifying payments).
+3.  **Database (MySQL):** Stores persistent data like user credentials and pet listings.
+4.  **External Services:** * **Billplz:** Handles secure monetary transactions.
+    * **Jom Hosting:** Provides live hosting environment.
+
+**Data Flow:**
+`Flutter App` <--> `HTTP Request (JSON)` <--> `PHP Scripts` <--> `MySQL Database`
 
 ---
 
@@ -73,7 +88,7 @@ The app features a robust backend for managing transactions and a user-friendly 
 | **Backend** | PHP (Native) | REST API for data handling |
 | **Database** | MySQL (MariaDB) | Relational database for Users, Pets, Donations |
 | **Payment** | Billplz API | Sandbox environment for payment processing |
-| **Server** | XAMPP / Apache | Local hosting for development |
+| **Hosting** | Jom Hosting | Live web server (Apache/LiteSpeed) |
 
 ---
 
@@ -83,29 +98,36 @@ The app features a robust backend for managing transactions and a user-friendly 
 |:---:|:---:|:---:|:---:|
 | <img src="assets/images/home.png" width="200"> | <img src="assets/images/details.png" width="200"> | <img src="assets/images/donate.png" width="200"> | <img src="assets/images/receipt.png" width="200"> |
 
-
 ---
 
-## 🚀 Installation Guide
+## 🚀 Installation & Setup
 
 ### Prerequisites
-* Flutter SDK installed.
-* XAMPP or WAMP server running.
-* Physical Device or Emulator.
+* **Flutter SDK** installed on your machine.
+* **Jom Hosting Account** (or any standard cPanel hosting).
+* **FTP Client** (like FileZilla) or access to File Manager.
 
-### Backend Setup
-1.  Move the `pawpal` folder to your server's root directory (e.g., `C:\xampp\htdocs\pawpal`).
-2.  Open `phpMyAdmin` and create a database named `pawpal_db`.
-3.  Import the provided `pawpal_db.sql` file.
-4.  Update `dbconnect.php` if your database password differs from default.
+### 1. Server Setup (Backend)
+1.  **Upload Files:**
+    * Upload the `pawpal` folder to your hosting's `public_html` directory via File Manager or FTP.
+    * *Path example: `/public_html/pawpal/server/`*
+2.  **Database Configuration:**
+    * Log in to your Hosting Control Panel (cPanel/DirectAdmin).
+    * Create a new MySQL Database (e.g., `yourname_pawpal_db`).
+    * Import the provided `pawpal_db.sql` file via **phpMyAdmin**.
+3.  **Connect Script:**
+    * Open `server/dbconnect.php` on the server.
+    * Update the `$servername`, `$username`, `$password`, and `$dbname` with your live hosting credentials.
 
-### Frontend Setup
+### 2. App Setup (Frontend)
 1.  Open the project in **VS Code**.
 2.  Run `flutter pub get` to install dependencies.
-3.  Open `lib/myconfig.dart` and update the `baseUrl` with your machine's IP address:
+3.  **Configure API Endpoint:**
+    * Open `lib/myconfig.dart`.
+    * Update the `baseUrl` to point to your live domain:
     ```dart
-    // Example
-    static const String baseUrl = "[http://192.168.](http://192.168.)x.x"; 
+    // Use your actual domain name
+    static const String baseUrl = "[https://yourdomain.com](https://yourdomain.com)"; 
     ```
 4.  Run the app:
     ```bash
@@ -129,3 +151,15 @@ lib/
 │   ├── DonationPage.dart # Donation form logic
 │   ├── payment_page.dart # Billplz WebView
 │   └── ...
+
+---
+
+## 📦 Dependencies (Flutter Packages)
+
+This project relies on the following packages:
+
+* [`http`](https://pub.dev/packages/http): For making API calls to the PHP server.
+* [`shared_preferences`](https://pub.dev/packages/shared_preferences): For storing user sessions (Auto-Login).
+* [`intl`](https://pub.dev/packages/intl): For date formatting.
+* [`webview_flutter`](https://pub.dev/packages/webview_flutter): For displaying the Billplz payment page.
+* [`cached_network_image`](https://pub.dev/packages/cached_network_image): For efficient image loading (Optional).
